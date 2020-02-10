@@ -14,7 +14,7 @@ public class test extends OpMode {
     public void init(){
 
         works = hardwareMap.get(DcMotor.class,"tests");
-        
+
     }
 
     public void loop(){
