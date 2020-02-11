@@ -13,13 +13,16 @@ public class seantest extends OpMode{
     @Override
 
     public void init() {
-        arm = hardwareMap.get(DcMotor.class, "arm");
+        arm = hardwareMap.get(DcMotor.class, "demiseArm");
         arm.setDirection(DcMotorSimple.Direction.FORWARD);
     }
 
     public void loop() {
         if (gamepad1.right_stick_y > 0.2 || gamepad1.right_stick_y < -0.2) {
             arm.setPower(gamepad1.right_stick_y);
+        }
+        else if (gamepad1.right_stick_y < 0.2 && gamepad1.right_stick_y > -0.2) {
+            arm.setPower(0.0);
         }
     }
 
