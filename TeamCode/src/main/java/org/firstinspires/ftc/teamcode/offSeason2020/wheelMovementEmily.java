@@ -39,38 +39,18 @@ public class wheelMovementEmily extends OpMode{
             backRight.setPower(-.5);
             backLeft.setPower(.5);
         }
-        if(gamepad1.left_stick_x < 0)//left
+        if(gamepad1.left_stick_x > 0)//right
         {
             frontLeft.setPower(.5);
             frontRight.setPower(.5);
             backRight.setPower(-.5);
             backLeft.setPower(-.5);
         }
-        if(gamepad1.left_stick_x > 0)//right
+        if(gamepad1.left_stick_x < 0)//left
         {
             frontLeft.setPower(-.5);
             frontRight.setPower(-.5);
             backRight.setPower(.5);
-            backLeft.setPower(.5);
-        }
-        if()//northwest, change condition statements
-        {
-            frontRight.setPower(.5);
-            backLeft.setPower(-.5);
-        }
-        if()//northeast, change condition statements
-        {
-            frontLeft.setPower(.5);
-            backRight.setPower(-.5);
-        }
-        if()//southwest, change condition statements
-        {
-            frontLeft.setPower(.5);
-            backRight.setPower(-.5);
-        }
-        if()//southeast, change condition statements
-        {
-            frontRight.setPower(-.5);
             backLeft.setPower(.5);
         }
         if(gamepad1.right_stick_y > 0)//rotate right, change condition statements
@@ -86,6 +66,13 @@ public class wheelMovementEmily extends OpMode{
             frontRight.setPower(.5);
             backRight.setPower(.5);
             backLeft.setPower(.5);
+        }
+        if(gamepad1.right_stick_x== 0 && gamepad1.right_stick_y == 0)
+        {
+            frontLeft.setPower(0);
+            frontRight.setPower(0);
+            backRight.setPower(0);
+            backLeft.setPower(0);
         }
     }
 
