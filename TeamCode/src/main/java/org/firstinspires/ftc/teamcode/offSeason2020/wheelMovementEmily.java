@@ -14,18 +14,21 @@ public class wheelMovementEmily extends OpMode{
     private DcMotor frontLeft;
     private DcMotor backRight;
     private DcMotor backLeft;
-    private double tolerance = 0.5;
+    private DcMotor intakeRight;
+    private DcMotor intakeLeft;
 
     @Override
 
-    public void init(){
+    public void init() {
         frontRight = hardwareMap.get(DcMotor.class, "frontRight");
         frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
         backRight = hardwareMap.get(DcMotor.class, "backRight");
-        backLeft = hardwareMap.get(DcMotor.class, "backLeft");}
-
+        backLeft = hardwareMap.get(DcMotor.class, "backLeft");
+        intakeRight = hardwareMap.get(DcMotor.class, "intakeRight");
+        intakeLeft = hardwareMap.get(DcMotor.class, "intakeLeft");
+    }
     public void loop(){
-        if(gamepad1.left_stick_y > 0)//going forwards
+        if(gamepad1.left_stick_y < 0)//going forwards
         {
             frontLeft.setPower(-.5);
             frontRight.setPower(.5);
@@ -74,6 +77,16 @@ public class wheelMovementEmily extends OpMode{
             backRight.setPower(0);
             backLeft.setPower(0);
         }
-    }
+        if(gamepad1.dpad_up) //spit out
+        {
+            intakeRight.setPower(.5);
+            intakeLeft.setPower(-.5);
+        }
 
+        if(gamepad1.dpad_down)//spit in
+        {
+            intakeRight.setPower(-.5);
+            intakeLeft.setPower(.5);
+        }
+    }
 }
