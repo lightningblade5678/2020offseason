@@ -45,24 +45,36 @@ public class seanWheels extends LinearOpMode {
                 backRight.setPower(-gamepad1.left_stick_x);
                 backLeft.setPower(gamepad1.left_stick_x);
             }
+            if (gamepad1.right_bumper && gamepad1.left_stick_x < 0.1 && gamepad1.left_stick_x > -0.1 && gamepad1.right_stick_y < 0.1 && gamepad1.right_stick_y > -0.1) {
+                frontRight.setPower(1);
+                frontLeft.setPower(-1);
+                backRight.setPower(-1);
+                backLeft.setPower(1);
+            }
+            else if (gamepad1.left_bumper && gamepad1.left_stick_x < 0.1 && gamepad1.left_stick_x > -0.1 && gamepad1.right_stick_y < 0.1 && gamepad1.right_stick_y > -0.1) {
+                frontRight.setPower(-1);
+                frontLeft.setPower(1);
+                backRight.setPower(1);
+                backLeft.setPower(-1);
+            }
             else if (gamepad1.left_stick_x < 0.1 && gamepad1.left_stick_x > -0.1 && gamepad1.right_stick_y < 0.1 && gamepad1.right_stick_y > -0.1) {
                 frontRight.setPower(0);
                 frontLeft.setPower(0);
                 backRight.setPower(0);
                 backLeft.setPower(0);
-            }/*
-            if (gamepad1.left_bumper) {
-                intakeLeft.setPower(1);
-                intakeRight.setPower(-1);
             }
-            else if (gamepad1.right_bumper) {
-                intakeLeft.setPower(-1);
+            if (gamepad1.x) {
+                intakeRight.setPower(-1);
+                intakeLeft.setPower(1);
+            }
+            else if (gamepad1.b) {
                 intakeRight.setPower(1);
+                intakeLeft.setPower(-1);
             }
             else {
-                intakeRight.setPower(0);
                 intakeLeft.setPower(0);
-            }*/
+                intakeRight.setPower(0);
+            }
         }
     }
 }
