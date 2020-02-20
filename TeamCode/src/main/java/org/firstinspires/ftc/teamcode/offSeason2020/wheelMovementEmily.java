@@ -16,6 +16,7 @@ public class wheelMovementEmily extends OpMode{
     private DcMotor backLeft;
     private DcMotor intakeRight;
     private DcMotor intakeLeft;
+    private double tolerance = .5;
 
     @Override
 
@@ -28,49 +29,49 @@ public class wheelMovementEmily extends OpMode{
         intakeLeft = hardwareMap.get(DcMotor.class, "intakeLeft");
     }
     public void loop(){
-        if(gamepad1.left_stick_y < 0)//going forwards
+        if(gamepad1.left_stick_y > 0 && gamepad1.left_stick_x > -.3 && gamepad1.left_stick_x < .3)//going forwards
         {
-            frontLeft.setPower(-.5);
-            frontRight.setPower(.5);
-            backRight.setPower(.5);
-            backLeft.setPower(-.5);
+            frontLeft.setPower(-1);
+            frontRight.setPower(1);
+            backRight.setPower(1);
+            backLeft.setPower(-1);
         }
-        if(gamepad1.left_stick_y < 0)//going backwards
+        else if(gamepad1.left_stick_y < 0 && gamepad1.left_stick_x > -.3 && gamepad1.left_stick_x < .3)//going backwards
         {
-            frontLeft.setPower(.5);
-            frontRight.setPower(-.5);
-            backRight.setPower(-.5);
-            backLeft.setPower(.5);
+            frontLeft.setPower(1);
+            frontRight.setPower(-1);
+            backRight.setPower(-1);
+            backLeft.setPower(1);
         }
-        if(gamepad1.left_stick_x > 0)//right
+        else if(gamepad1.left_stick_x > .3)//right
         {
-            frontLeft.setPower(.5);
-            frontRight.setPower(.5);
-            backRight.setPower(-.5);
-            backLeft.setPower(-.5);
+            frontLeft.setPower(1);
+            frontRight.setPower(1);
+            backRight.setPower(-1);
+            backLeft.setPower(-1);
         }
-        if(gamepad1.left_stick_x < 0)//left
+        else if(gamepad1.left_stick_x < -.3)//left
         {
-            frontLeft.setPower(-.5);
-            frontRight.setPower(-.5);
-            backRight.setPower(.5);
-            backLeft.setPower(.5);
+            frontLeft.setPower(-1);
+            frontRight.setPower(-1);
+            backRight.setPower(1);
+            backLeft.setPower(1);
         }
         if(gamepad1.right_stick_y > 0)//rotate right, change condition statements
         {
-            frontLeft.setPower(-.5);
-            frontRight.setPower(-.5);
-            backRight.setPower(-.5);
-            backLeft.setPower(-.5);
+            frontLeft.setPower(-1);
+            frontRight.setPower(-1);
+            backRight.setPower(-1);
+            backLeft.setPower(-1);
         }
         if(gamepad1.right_stick_y < 0)//rotate left, change condition statements
         {
-            frontLeft.setPower(.5);
-            frontRight.setPower(.5);
-            backRight.setPower(.5);
-            backLeft.setPower(.5);
+            frontLeft.setPower(1);
+            frontRight.setPower(1);
+            backRight.setPower(1);
+            backLeft.setPower(1);
         }
-        if(gamepad1.right_stick_x== 0 && gamepad1.right_stick_y == 0)
+        if(Math.pow(gamepad1.right_stick_x, 2) <= 0.01 && Math.pow(gamepad1.right_stick_y, 2) <= 0.01)
         {
             frontLeft.setPower(0);
             frontRight.setPower(0);
