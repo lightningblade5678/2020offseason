@@ -12,6 +12,8 @@ public class seanWheels extends LinearOpMode {
     public DcMotor frontRight;
     public DcMotor backLeft;
     public DcMotor backRight;
+    public DcMotor intakeLeft;
+    public DcMotor intakeRight;
 
     @Override
 
@@ -20,6 +22,8 @@ public class seanWheels extends LinearOpMode {
         frontRight = hardwareMap.get(DcMotor.class, "frontRight");
         backLeft = hardwareMap.get(DcMotor.class, "backLeft");
         backRight = hardwareMap.get(DcMotor.class, "backRight");
+        intakeLeft = hardwareMap.get(DcMotor.class, "intakeLeft");
+        intakeRight = hardwareMap.get(DcMotor.class, "intakeRight");
 
         frontLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         frontRight.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -30,23 +34,35 @@ public class seanWheels extends LinearOpMode {
 
         while(opModeIsActive()) {
             if (gamepad1.right_stick_y > 0.1 || gamepad1.right_stick_y < -0.1) {
-                frontRight.setPower(gamepad1.right_stick_y);
-                frontLeft.setPower(gamepad1.right_stick_y);
-                backRight.setPower(gamepad1.right_stick_y);
-                backLeft.setPower(gamepad1.right_stick_y);
+                frontRight.setPower(-gamepad1.right_stick_y);
+                frontLeft.setPower(-gamepad1.right_stick_y);
+                backRight.setPower(-gamepad1.right_stick_y);
+                backLeft.setPower(-gamepad1.right_stick_y);
             }
             else if (gamepad1.left_stick_x > 0.1 || gamepad1.left_stick_x < -0.1) {
-                frontRight.setPower(gamepad1.left_stick_x);
-                frontLeft.setPower(-gamepad1.left_stick_x);
-                backLeft.setPower(gamepad1.left_stick_x);
+                frontRight.setPower(-gamepad1.left_stick_x);
+                frontLeft.setPower(gamepad1.left_stick_x);
                 backRight.setPower(-gamepad1.left_stick_x);
+                backLeft.setPower(gamepad1.left_stick_x);
             }
             else if (gamepad1.left_stick_x < 0.1 && gamepad1.left_stick_x > -0.1 && gamepad1.right_stick_y < 0.1 && gamepad1.right_stick_y > -0.1) {
                 frontRight.setPower(0);
                 frontLeft.setPower(0);
                 backRight.setPower(0);
                 backLeft.setPower(0);
+            }/*
+            if (gamepad1.left_bumper) {
+                intakeLeft.setPower(1);
+                intakeRight.setPower(-1);
             }
+            else if (gamepad1.right_bumper) {
+                intakeLeft.setPower(-1);
+                intakeRight.setPower(1);
+            }
+            else {
+                intakeRight.setPower(0);
+                intakeLeft.setPower(0);
+            }*/
         }
     }
 }
