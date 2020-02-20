@@ -29,28 +29,28 @@ public class wheelMovementEmily extends OpMode{
         intakeLeft = hardwareMap.get(DcMotor.class, "intakeLeft");
     }
     public void loop(){
-        if(gamepad1.left_stick_y > 0)//going forwards
+        if(gamepad1.left_stick_y > 0 && gamepad1.left_stick_x > -.3 && gamepad1.left_stick_x < .3)//going forwards
         {
             frontLeft.setPower(-1);
             frontRight.setPower(1);
             backRight.setPower(1);
             backLeft.setPower(-1);
         }
-        else if(gamepad1.left_stick_y < 0)//going backwards
+        else if(gamepad1.left_stick_y < 0 && gamepad1.left_stick_x > -.3 && gamepad1.left_stick_x < .3)//going backwards
         {
             frontLeft.setPower(1);
             frontRight.setPower(-1);
             backRight.setPower(-1);
             backLeft.setPower(1);
         }
-        else if(gamepad1.left_stick_x > 0)//right
+        else if(gamepad1.left_stick_x > .3)//right
         {
             frontLeft.setPower(1);
             frontRight.setPower(1);
             backRight.setPower(-1);
             backLeft.setPower(-1);
         }
-        else if(gamepad1.left_stick_x < 0)//left
+        else if(gamepad1.left_stick_x < -.3)//left
         {
             frontLeft.setPower(-1);
             frontRight.setPower(-1);
@@ -71,7 +71,7 @@ public class wheelMovementEmily extends OpMode{
             backRight.setPower(1);
             backLeft.setPower(1);
         }
-        if(Math.pow(gamepad1.right_stick_x, 2)== 0.01 && Math.pow(gamepad1.right_stick_y, 2) == 0.01)
+        if(Math.pow(gamepad1.right_stick_x, 2) <= 0.01 && Math.pow(gamepad1.right_stick_y, 2) <= 0.01)
         {
             frontLeft.setPower(0);
             frontRight.setPower(0);
