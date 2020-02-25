@@ -8,22 +8,35 @@ import org.firstinspires.ftc.robotcore.internal.network.DeviceNameListener;
 @TeleOp
 public class AlexWheels extends OpMode {
 
-    private DcMotor works;
+    private DcMotor frontLeft, frontRight, backLeft, backRight;
 
     @Override
     public void init() {
 
-        works = hardwareMap.get(DcMotor.class, "AlexWheels");
+        frontLeft = hardwareMap.get(DcMotor.class, "AlexWheels");
+        frontRight = hardwareMap.get(DcMotor.class, "AlexWheels");
+        backLeft = hardwareMap.get(DcMotor.class, "AlexWheels");
+        backRight
+                = hardwareMap.get(DcMotor.class, "AlexWheels");
     }
   public void loop() {
         if(gamepad1.left_stick_y > 0.2) {
-            works.setPower(1);
+           frontLeft.setPower(1);
+            backLeft.setPower(1);
+            frontRight.setPower(1);
+            backRight.setPower(1);
         }
       if(gamepad1.left_stick_y > -0.2) {
-          works.setPower(-1);
+          frontLeft.setPower(-1);
+          backLeft.setPower(-1);
+          frontRight.setPower(-1);
+          backRight.setPower(-1);
       }
       if(gamepad1.left_stick_y == 0) {
-          works.setPower(0);
+          frontLeft.setPower(0);
+          frontRight.setPower(0);
+          backRight.setPower(0);
+          backLeft.setPower(0);
       }
     }
 
@@ -39,4 +52,4 @@ public class AlexWheels extends OpMode {
 
 
 
-}
+
