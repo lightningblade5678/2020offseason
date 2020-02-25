@@ -16,7 +16,6 @@ public class wheelMovementEmily extends OpMode{
     private DcMotor backLeft;
     private DcMotor intakeRight;
     private DcMotor intakeLeft;
-    private double tolerance = .5;
 
     @Override
 
@@ -29,14 +28,14 @@ public class wheelMovementEmily extends OpMode{
         intakeLeft = hardwareMap.get(DcMotor.class, "intakeLeft");
     }
     public void loop(){
-        if(gamepad1.left_stick_y > 0 && gamepad1.left_stick_x > -.3 && gamepad1.left_stick_x < .3)//going forwards
+        if(gamepad1.left_stick_y > -.1 || gamepad1.left_stick_y < .1)//going forwards
         {
             frontLeft.setPower(-1);
             frontRight.setPower(1);
             backRight.setPower(1);
             backLeft.setPower(-1);
         }
-        else if(gamepad1.left_stick_y < 0 && gamepad1.left_stick_x > -.3 && gamepad1.left_stick_x < .3)//going backwards
+        else if(gamepad1.left_stick_y > -.1 || gamepad1.left_stick_y < .1)//going backwards
         {
             frontLeft.setPower(1);
             frontRight.setPower(-1);
