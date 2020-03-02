@@ -53,7 +53,7 @@ public class seanWheels extends LinearOpMode {
             }
             else if (gamepad1.left_bumper && gamepad1.left_stick_x < 0.1 && gamepad1.left_stick_x > -0.1 && gamepad1.right_stick_y < 0.1 && gamepad1.right_stick_y > -0.1) {
                 frontRight.setPower(-1);
-                frontLeft.setPower(1);
+                 frontLeft.setPower(1);
                 backRight.setPower(1);
                 backLeft.setPower(-1);
             }
