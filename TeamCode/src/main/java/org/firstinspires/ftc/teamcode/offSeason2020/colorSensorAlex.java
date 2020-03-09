@@ -6,20 +6,18 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 public class colorSensorAlex extends LinearOpMode {
 
     @Override
-    public void runOpMode() throws InterruptedException {
-
-
-        ColorSensor color_sensor;
-        public void init () {
-            color_sensor = hardwareMap.colorSensor.get("color");
-
-        }
-
-        @Override
-        public void loop () {
-            color_sensor.argb();
-        }
-
-
+    public void runOpMode() {
+        color_sensor.argb();
+        color_sensor.argb();
     }
+        ColorSensor color_sensor;
+         {
+            color_sensor = hardwareMap.colorSensor.get("color");
+        }
+
 }
+
+
+
+
+
