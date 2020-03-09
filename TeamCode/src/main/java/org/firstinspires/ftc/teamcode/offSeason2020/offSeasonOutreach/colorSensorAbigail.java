@@ -8,20 +8,16 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 @TeleOp
 
 public class colorSensorAbigail extends LinearOpMode {
+
     private DcMotor motor;
     private ColorSensor color_sensor;
 
     @Override
 
-
-    public void init(){
-
+    public void runOpMode(){
         motor = hardwareMap.get(DcMotor.class, "motor");
         color_sensor = hardwareMap.colorSensor.get("color");
 
-    }
-
-    public void loop(){
         color_sensor.alpha(); // Total luminosity
         color_sensor.argb(); // Combined color value
 
@@ -32,6 +28,8 @@ public class colorSensorAbigail extends LinearOpMode {
             motor.setPower(0);
 
         }
+
+
     }
 
 }
