@@ -13,7 +13,7 @@ public class colorSensorAbigail extends LinearOpMode {
 
     @Override
 
-    
+
     public void init(){
 
         motor = hardwareMap.get(DcMotor.class, "motor");
