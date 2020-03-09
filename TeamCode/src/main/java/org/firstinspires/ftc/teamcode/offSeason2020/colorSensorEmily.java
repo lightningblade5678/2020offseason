@@ -20,7 +20,10 @@ public class colorSensorEmily extends LinearOpMode {
         int b = 1;
         waitForStart();
 
-
+        while(opModeIsActive())
+        {
+            
+        }
     }
 
 }
