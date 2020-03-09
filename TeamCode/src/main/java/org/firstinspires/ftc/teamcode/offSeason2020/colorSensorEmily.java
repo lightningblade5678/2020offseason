@@ -17,13 +17,15 @@ public class colorSensorEmily extends LinearOpMode {
         colorSensor = hardwareMap.colorSensor.get("Color");
         colorSensor.alpha();
         colorSensor.argb();
-        int b = 1;
         waitForStart();
 
-        while(opModeIsActive())
+        /*while(opModeIsActive())
         {
-            
+            telemetry.addData("Red", colorSensor.red());
+            telemetry.addData("Green", colorSensor.blue());
+
         }
+        */
     }
 
 }
