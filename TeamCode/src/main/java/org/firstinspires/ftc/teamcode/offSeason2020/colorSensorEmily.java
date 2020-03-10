@@ -8,24 +8,14 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 @TeleOp
 
 public class colorSensorEmily extends LinearOpMode {
-    private ColorSensor colorSensor;
+    //private ColorSensor colorSensor;
 
     @Override
-
+    
     public void runOpMode()
     {
-        colorSensor = hardwareMap.colorSensor.get("Color");
-        colorSensor.alpha();
+        ColorSensor colorSensor;
+        colorSensor = hardwareMap.colorSensor.get("sensorColor");
         colorSensor.argb();
-        waitForStart();
-
-        /*while(opModeIsActive())
-        {
-            telemetry.addData("Red", colorSensor.red());
-            telemetry.addData("Green", colorSensor.blue());
-
-        }
-        */
     }
-
 }
